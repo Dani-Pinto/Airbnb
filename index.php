@@ -17,7 +17,7 @@
 
                 <nav class="navegacion">
                     <a class="btn-nav-header" href="/">Arrendar</a>
-                    <a class="btn-nav-header" href="/php/crudApartamento/crear.php">Registrar Apartamento</a>
+                    <a class="btn-nav-header" href="/php/crudApartamento/create.php">Registrar Apartamento</a>
                 </nav>
             </div>
 
@@ -29,110 +29,47 @@
         <h1>Apartamentos en Arrendamiento</h1>
 
         <div class="contenedor-anuncios">
-            <div class="anuncio">
-                <picture>
-                    <source srcset="build/img/anuncio1.webp" type="image/webp">
-                    <source srcset="build/img/anuncio1.jpg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
-                </picture>
+            <?php
+                include('./php/conexion.php');
+                $imagen = 1;
 
-                <div class="contenido-anuncio">
-                    <h3>Apartamento de Lujo en el Lago</h3>
-                    <p>Apartamento en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-                    <p class="precio">$2,400,000</p>
+                // Script de consulta
+                $sql = "SELECT id, alias, precio_dia, camas FROM apartamentos";
+                $apartamentos = $conn->query($sql);
 
-                    <ul class="iconos-caracteristicas">
-                        <li>
-                            <img loading="lazy" src="build/img/icono_wc.svg" alt="Icono wc">
-                            <p>3</p>
-                        </li><!-- wc -->
+                if ($apartamentos) {
+                    foreach ($apartamentos as $apartamento) {
+                        echo "<div class='anuncio'>";
+                            echo "<picture>" .
+                                    "<source srcset='build/img/anuncio$imagen.webp' type='image/webp'>" .
+                                    "<source srcset='build/img/anuncio1.jpg' type='image/jpeg'>" .
+                                    "<img loading='lazy' src='build/img/anuncio1.jpg' alt='anuncio'>" .
+                                "</picture>";
 
-                        <li>
-                            <img loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-                            <p>3</p>
-                        </li> <!-- estacionamiento -->
+                            echo "<div class='contenido-anuncio'>";
+                                echo "<h3>" . $apartamento['alias'] . "</h3>";
+                                echo "<p class='precio'>" . $apartamento['precio_dia'] ."</p>";
+                                echo "<ul class='iconos-caracteristicas'>" .
+                                        "<li>" .
+                                            "<img loading='lazy' src='build/img/icono_dormitorio.svg' alt='Icono Camas'>".
+                                            "<p>". $apartamento['camas'] ."</p>" . 
+                                        "</li>" .
+                                    "</ul>";
+                                echo "<a class='boton boton-amarillo' href='./php/view.php?id=" . $apartamento['id'] . "'>Ver Propiedad</a>";
+                            echo "</div>";
+                        echo "</div>";
 
-                        <li>
-                            <img loading="lazy" src="build/img/icono_dormitorio.svg" alt="Icono Habitaciones">
-                            <p>3</p>
-                        </li><!-- camas -->
-                    </ul>
+                        $imagen++;
+                        if($imagen === 6){
+                            $imagen = 1;
+                        }
+                    }
+                }
 
-                    <a class="boton boton-amarillo" href="">Ver Propiedad</a>
-                </div><!-- .contenido-anuncio -->
-            </div><!-- .anuncio -->
-
-            <div class="anuncio">
-                <picture>
-                    <source srcset="build/img/anuncio1.webp" type="image/webp">
-                    <source srcset="build/img/anuncio1.jpg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
-                </picture>
-
-                <div class="contenido-anuncio">
-                    <h3>Apartamento de Lujo en el Lago</h3>
-                    <p>Apartamento en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-                    <p class="precio">$2,400,000</p>
-
-                    <ul class="iconos-caracteristicas">
-                        <li>
-                            <img loading="lazy" src="build/img/icono_wc.svg" alt="Icono wc">
-                            <p>3</p>
-                        </li><!-- wc -->
-
-                        <li>
-                            <img loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-                            <p>3</p>
-                        </li> <!-- estacionamiento -->
-
-                        <li>
-                            <img loading="lazy" src="build/img/icono_dormitorio.svg" alt="Icono Habitaciones">
-                            <p>3</p>
-                        </li><!-- camas -->
-                    </ul>
-
-                    <a class="boton boton-amarillo" href="">Ver Propiedad</a>
-                </div><!-- .contenido-anuncio -->
-            </div><!-- .anuncio -->
-
-            <div class="anuncio">
-                <picture>
-                    <source srcset="build/img/anuncio1.webp" type="image/webp">
-                    <source srcset="build/img/anuncio1.jpg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
-                </picture>
-
-                <div class="contenido-anuncio">
-                    <h3>Apartamento de Lujo en el Lago</h3>
-                    <p>Apartamento en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-                    <p class="precio">$2,400,000</p>
-
-                    <ul class="iconos-caracteristicas">
-                        <li>
-                            <img loading="lazy" src="build/img/icono_wc.svg" alt="Icono wc">
-                            <p>3</p>
-                        </li><!-- wc -->
-
-                        <li>
-                            <img loading="lazy" src="build/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-                            <p>3</p>
-                        </li> <!-- estacionamiento -->
-
-                        <li>
-                            <img loading="lazy" src="build/img/icono_dormitorio.svg" alt="Icono Habitaciones">
-                            <p>3</p>
-                        </li><!-- camas -->
-                    </ul>
-
-                    <a class="boton boton-amarillo" href="">Ver Propiedad</a>
-                </div><!-- .contenido-anuncio -->
-            </div><!-- .anuncio -->
+            ?>
+            
         </div>
     </main>
-
-    <?php
-        include('./php/conexion.php');
-    ?>
 
     <footer class="footer seccion">
         <p class="copyright">Todos los Derechos Reservados 2023 &copy;</p>

@@ -1,0 +1,33 @@
+CREATE DATABASE airbnb;
+USE airbnb;
+
+CREATE TABLE usuarios (
+documento VARCHAR(60) NOT NULL,
+nombre VARCHAR(60),
+ciudad VARCHAR(60),
+acompanantes INT(11),
+PRIMARY KEY (documento)
+);
+
+
+CREATE TABLE apartamentos (
+id INT(11) NOT NULL AUTO_INCREMENT,
+alias VARCHAR(60),
+direccion VARCHAR(60),
+camas INT(1),
+capacidad INT(11),
+precio_dia DECIMAL (10,2),
+dias_alquilados INT(99),
+-usuario_documento VARCHAR(60),
+PRIMARY KEY (id),
+-FOREIGN KEY (usuario_documento) usuarios(documento)
+);
+
+
+
+
+
+
+
+
+

@@ -16,7 +16,7 @@
                 <a class="logo" href="/">Air<span>bnb</span></a>
 
                 <nav class="navegacion">
-                    <a class="btn-nav-header" href="/php/crudArrendatario/crear.php">Registrar Arrendatario</a>
+                    <a class="btn-nav-header" href="/">Arrendar</a>
                     <a class="btn-nav-header" href="/php/crudApartamento/crear.php">Registrar Apartamento</a>
                 </nav>
             </div>
@@ -129,6 +129,10 @@
             </div><!-- .anuncio -->
         </div>
     </main>
+
+    <?php
+        include('./php/conexion.php');
+    ?>
 
     <footer class="footer seccion">
         <p class="copyright">Todos los Derechos Reservados 2023 &copy;</p>

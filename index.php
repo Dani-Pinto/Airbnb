@@ -55,7 +55,7 @@
                                             "<p>". $apartamento['camas'] ."</p>" . 
                                         "</li>" .
                                     "</ul>";
-                                echo "<a class='boton boton-amarillo' href='./php/view.php?id=" . $apartamento['id'] . "'>Ver Propiedad</a>";
+                                echo "<a class='boton boton-amarillo' href='./php/crudApartamento/view.php?id=" . $apartamento['id'] . "'>Ver Propiedad</a>";
                             echo "</div>";
                         echo "</div>";
 

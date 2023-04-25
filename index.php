@@ -42,8 +42,8 @@
                         echo "<div class='anuncio'>";
                             echo "<picture>" .
                                     "<source srcset='build/img/anuncio$imagen.webp' type='image/webp'>" .
-                                    "<source srcset='build/img/anuncio1.jpg' type='image/jpeg'>" .
-                                    "<img loading='lazy' src='build/img/anuncio1.jpg' alt='anuncio'>" .
+                                    "<source srcset='build/img/anuncio$imagen.jpg' type='image/jpeg'>" .
+                                    "<img loading='lazy' src='build/img/anuncio$imagen.jpg' alt='anuncio'>" .
                                 "</picture>";
 
                             echo "<div class='contenido-anuncio'>";

@@ -55,7 +55,6 @@
                 mysqli_close($conn);
             }
         ?>
-        <p class="alerta-verde">
 
         <form action="./create.php" method="POST" class="formulario">
             <fieldset>

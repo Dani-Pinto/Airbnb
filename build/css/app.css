@@ -554,6 +554,9 @@ template {
 }
 .anuncio .contenido-anuncio {
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .anuncio h3, .anuncio p {
   margin: 0;

@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Apartamento</title>
-    <link rel="stylesheet" href="/build/css/app.css">
+    <link rel="stylesheet" href="../../build/css/app.css">
 </head>
 
 <body>
     <header class="header">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a class="logo" href="/">Air<span>bnb</span></a>
+                <a class="logo" href="../../">Air<span>bnb</span></a>
 
                 <nav class="navegacion">
-                    <a class="btn-nav-header" href="/">Volver</a>
+                    <a class="btn-nav-header" href="../../index.php">Volver</a>
                 </nav>
             </div>
         </div>
@@ -42,9 +42,9 @@
                 include('../conexion.php');
 
                 //Script de consulta
-                $sql = "UPDATE apartamentos
+                $sql = "UPDATE apartamento
                     SET alias='$alias', direccion='$direccion', camas=$camas, capacidad=$capacidad, precio_dia=$precio_dia, dias_alquilados=$dias_alquilados
-                    WHERE id=$id2";
+                    WHERE id_apartamento=$id2";
 
                 //Generar alerta de confirmación
                 if( mysqli_query($conn, $sql) ) {
@@ -64,8 +64,8 @@
         include('../conexion.php');
 
         $sql = "SELECT *
-            FROM apartamentos
-            WHERE id = $id";
+            FROM apartamento
+            WHERE id_apartamento = $id";
 
         $resultado = mysqli_query($conn, $sql);
         $apartamento = $resultado->fetch_assoc(); //->fetch_assoc(), Arreglo asociativo.
@@ -74,10 +74,10 @@
         mysqli_close($conn);
         ?>
         
-        <form action="./update.php?id=<?= $apartamento['id'] ?>" method="POST" class="formulario">
+        <form action="./update.php?id=<?= $apartamento['id_apartamento'] ?>" method="POST" class="formulario">
             <fieldset>
                 <legend>Información Apartamento</legend>
-                <input type="hidden" name="id" value=<?= $apartamento['id'] ?> > <!-- echo -->
+                <input type="hidden" name="id" value=<?= $apartamento['id_apartamento'] ?> > <!-- echo -->
 
                 <label for="alias">Alias:</label>
                 <input id="alias" name="alias" type="text" placeholder="Alias" required value='<?= $apartamento['alias'] ?>'>
@@ -98,7 +98,6 @@
                 <input id="dias_alquilados" name="dias_alquilados" type="number" placeholder="Días Alquilados" required  value='<?= $apartamento['dias_alquilados'] ?>'>
             </fieldset>
             <button type="submit" class="boton-verde">Guardar</button>
-            <button type="reset" class="boton-azul">Limpiar</button>
         </form>
     </main>
 

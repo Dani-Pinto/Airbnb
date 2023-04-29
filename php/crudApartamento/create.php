@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Apartamento</title>
-    <link rel="stylesheet" href="/build/css/app.css">
+    <link rel="stylesheet" href="../../build/css/app.css">
 </head>
 
 <body>
     <header class="header">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a class="logo" href="/">Air<span>bnb</span></a>
+                <a class="logo" href="../../">Air<span>bnb</span></a>
 
                 <nav class="navegacion">
-                    <a class="btn-nav-header" href="/">Volver</a>
+                    <a class="btn-nav-header" href="../../index.php">Volver</a>
                 </nav>
             </div>
         </div>
@@ -40,7 +40,7 @@
                 include('../conexion.php');
 
                 //Script de consulta
-                $sql = "INSERT INTO apartamentos(alias, direccion, camas, capacidad, precio_dia, dias_alquilados) 
+                $sql = "INSERT INTO apartamento(alias, direccion, camas, capacidad, precio_dia, dias_alquilados) 
                 VALUES ('$alias', '$direccion', $camas, $capacidad, $precio_dia, $dias_alquilados)";
                 //echo $sql . '<br><br>';
 

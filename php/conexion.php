@@ -4,7 +4,7 @@
     $server = "127.0.0.1";
     $database = "airbnb";
     $username = "root";
-    $password = "root";
+    $password = "";
 
     //Cadena de conexión
     $conn = mysqli_connect($server, $username, $password, $database);

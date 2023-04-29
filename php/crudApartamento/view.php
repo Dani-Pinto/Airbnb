@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Apartamento</title>
-    <link rel="stylesheet" href="/build/css/app.css">
+    <link rel="stylesheet" href="../../build/css/app.css">
 </head>
 
 <body>
     <header class="header">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a class="logo" href="/">Air<span>bnb</span></a>
+                <a class="logo" href="../../">Air<span>bnb</span></a>
 
                 <nav class="navegacion">
-                    <a class="btn-nav-header" href="/">Volver</a>
+                    <a class="btn-nav-header" href="../../index.php">Volver</a>
                 </nav>
             </div>
         </div>
@@ -31,8 +31,8 @@
 
             include('../conexion.php');
             $sql = "SELECT *
-                    FROM apartamentos
-                    WHERE id = $id";
+                    FROM apartamento
+                    WHERE id_apartamento = $id";
 
             $resultado = mysqli_query($conn, $sql);
             $apartamento = $resultado->fetch_assoc();
@@ -41,7 +41,7 @@
                 ?>      
                 <p>
                     <span class="label">ID: </span>
-                    <span class="label-info"><?= $apartamento['id'] ?></span>
+                    <span class="label-info"><?= $apartamento['id_apartamento'] ?></span>
                 </p>
                 <p>
                     <span class="label">Alias:</span>
@@ -69,8 +69,8 @@
                     <span class="label-info"><?= $apartamento['dias_alquilados'] ?></span>
                 </p>
 
-                <a href="./update.php?id=<?= $apartamento['id'] ?>" class='boton boton-azul'>Actualizar</a>
-                <a href="./delete.php?id=<?= $apartamento['id'] ?>" class='boton boton-rojo'>Eliminar</a>
+                <a href="./update.php?id=<?= $apartamento['id_apartamento'] ?>" class='boton boton-azul'>Actualizar</a>
+                <a href="./delete.php?id=<?= $apartamento['id_apartamento'] ?>" class='boton boton-rojo'>Eliminar</a>
 
         <?php
             }

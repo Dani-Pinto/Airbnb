@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Apartamento</title>
-    <link rel="stylesheet" href="/build/css/app.css">
+    <link rel="stylesheet" href="../../build/css/app.css">
 </head>
 
 <body>
     <header class="header">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a class="logo" href="/">Air<span>bnb</span></a>
+                <a class="logo" href="../../">Air<span>bnb</span></a>
 
                 <nav class="navegacion">
-                    <a class="btn-nav-header" href="/">Volver</a>
+                    <a class="btn-nav-header" href="../../index.php">Volver</a>
                 </nav>
             </div>
         </div>
@@ -31,8 +31,8 @@
            include('../conexion.php');
 
            $sql = "DELETE
-                   FROM apartamentos 
-                   WHERE id = $id";
+                   FROM apartamento
+                   WHERE id_apartamento = $id";
 
            mysqli_query($conn, $sql);
            echo "<p class='alerta alerta-verde'> ¡Se ha eliminado el apartamento correctamente! </p>";
